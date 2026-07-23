@@ -9,7 +9,7 @@
 <br/><br/>
 
 <img src="https://komarev.com/ghpvc/?username=DarkHeart01&label=Profile%20Views&color=8a2be2&style=flat" alt="profile views"/>
-<img src="https://img.shields.io/github/followers/DarkHeart01?label=Followers&style=flat&color=8a2be2" alt="followers"/>
+<img src="./profile/followers.svg" alt="followers"/>
 <img src="https://img.shields.io/badge/Arctic%20Code%20Vault-Contributor-4c1d95?style=flat&logo=github&logoColor=white" alt="arctic code vault"/>
 <img src="./profile/contributions-2026.svg" alt="2026 contributions"/>
 

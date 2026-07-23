@@ -18,6 +18,13 @@
 # profile - so unlike the stats card's "Total Commits" (which only counts commits, not
 # issues/PRs/reviews), this badge will always match GitHub's number exactly.
 #
+# The followers badge (profile/followers.svg) is generated the same way - fetched via
+# GitHub's REST API and baked into a STATIC shields.io badge. This replaces the old
+# shields.io "live GitHub followers" badge, which calls GitHub's API on shields.io's own
+# servers using their shared token pool - when that pool is exhausted it renders the
+# literal text "Unable to select next GitHub token from pool" instead of a number. A
+# static badge with the number already baked in can't fail that way.
+#
 # The streak card is now generated with an authenticated token too (profile/streak.svg),
 # replacing the old hotlinked streak-stats.demolab.com image. That old image had no way
 # to authenticate, so it could only see PUBLIC contributions - private repo activity was
@@ -83,6 +90,11 @@ jobs:
       - name: Generate contributions badge
         run: |
           curl -s "https://img.shields.io/badge/2026%20Contributions-${{ steps.contrib.outputs.total }}-8a2be2?style=for-the-badge&logo=github&logoColor=white" -o profile/contributions-2026.svg
+
+      - name: Generate followers badge (avoids shields.io's flaky live GitHub badge)
+        run: |
+          FOLLOWERS=$(curl -s -H "Authorization: bearer ${{ secrets.STATS_TOKEN }}" https://api.github.com/users/DarkHeart01 | jq -r '.followers')
+          curl -s "https://img.shields.io/badge/Followers-${FOLLOWERS}-8a2be2?style=flat&logo=github&logoColor=white" -o profile/followers.svg
 
       - name: Generate stats card (includes 2026 commit count, private + public)
         uses: stats-organization/github-readme-stats-action@v2
