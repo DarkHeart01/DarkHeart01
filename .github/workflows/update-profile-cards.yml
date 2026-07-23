@@ -1,0 +1,116 @@
+# SETUP INSTRUCTIONS
+# 1. In your DarkHeart01/DarkHeart01 repo, save this file as:
+#    .github/workflows/update-profile-cards.yml
+# 2. Commit and push to "main".
+# 3. Go to the "Actions" tab -> "Update profile cards" -> "Run workflow" (manual trigger)
+#    to generate the files the first time. It also re-runs daily on its own after that.
+# 4. Once it finishes (~1-2 min), a "profile/" folder will appear in your repo containing
+#    stats.svg, top-langs.svg, trophy.svg, and one pin-*.svg per featured project.
+#    The README already points at these local files, so they'll just start working —
+#    no more broken icons, because nothing is hotlinked to a live third-party server anymore.
+#
+# NOTE: the "commits_year=2026" param on the stats card locks the commit count to 2026.
+# Bump it to 2027 next January if you want the card to track the new year.
+
+name: Update profile cards
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # runs once a day
+  workflow_dispatch: # lets you trigger it manually from the Actions tab
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate stats card (includes 2026 commit count)
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=DarkHeart01&show_icons=true&theme=tokyonight&hide_border=true&commits_year=2026
+          path: profile/stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate top languages card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=DarkHeart01&layout=compact&theme=tokyonight&hide_border=true
+          path: profile/top-langs.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate pin - erp-masterdata-integration
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=DarkHeart01&repo=erp-masterdata-integration&theme=tokyonight&hide_border=true
+          path: profile/pin-erp-masterdata-integration.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate pin - General-Swarm
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=BreakingEnigmaVIT&repo=General-Swarm&theme=tokyonight&hide_border=true
+          path: profile/pin-general-swarm.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate pin - Auditor
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=ArgusPanipath&repo=Auditor&theme=tokyonight&hide_border=true
+          path: profile/pin-auditor.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate pin - TTS
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=MyMindSpace&repo=TTS&theme=tokyonight&hide_border=true
+          path: profile/pin-tts.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate pin - Realstate_allan
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=DarkHeart01&repo=Realstate_allan&theme=tokyonight&hide_border=true
+          path: profile/pin-realstate-allan.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate pin - MUN_chits
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=pictmun&repo=MUN_chits&theme=tokyonight&hide_border=true
+          path: profile/pin-mun-chits.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate trophy card
+        uses: Erik-Donath/github-profile-trophy@feature/generate-svg
+        with:
+          username: DarkHeart01
+          file: profile/trophy.svg
+          # This action's GraphQL query reads contributionsCollection, which the
+          # automatic GITHUB_TOKEN isn't authorized to read (causes "Failed to
+          # fetch user info"). Create a classic PAT with the read:user scope,
+          # save it as a repo secret named PROFILE_PAT, and it'll be used here.
+          token: ${{ secrets.PROFILE_PAT }}
+        # Optional: check this action's README for extra inputs (e.g. theme) if you
+        # want the trophy colors to match tokyonight more closely.
+
+      - name: Commit and push generated cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add profile/
+          git diff --staged --quiet || git commit -m "chore: update profile cards"
+          git push
