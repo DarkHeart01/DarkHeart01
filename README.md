@@ -11,6 +11,7 @@
 <img src="https://komarev.com/ghpvc/?username=DarkHeart01&label=Profile%20Views&color=8a2be2&style=flat" alt="profile views"/>
 <img src="https://img.shields.io/github/followers/DarkHeart01?label=Followers&style=flat&color=8a2be2" alt="followers"/>
 <img src="https://img.shields.io/badge/Arctic%20Code%20Vault-Contributor-4c1d95?style=flat&logo=github&logoColor=white" alt="arctic code vault"/>
+<img src="./profile/contributions-2026.svg" alt="2026 contributions"/>
 
 </div>
 
@@ -82,6 +83,8 @@
 <div align="center">
 <img src="https://raw.githubusercontent.com/DarkHeart01/DarkHeart01/output/github-contribution-grid-snake.svg" alt="snake animation" width="100%"/>
 </div>
+
+<p align="center"><i>One-time setup needed — see <code>snake-workflow.yml</code> in the same folder as this README.</i></p>
 
 <br/>
 

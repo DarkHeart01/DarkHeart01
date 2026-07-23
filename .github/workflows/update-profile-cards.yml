@@ -9,8 +9,14 @@
 #    The README already points at these local files, so they'll just start working —
 #    no more broken icons, because nothing is hotlinked to a live third-party server anymore.
 #
-# NOTE: the "commits_year=2026" param on the stats card locks the commit count to 2026.
-# Bump it to 2027 next January if you want the card to track the new year.
+# NOTE: the "commits_year=2026" param on the stats card, and the "2026-01-01"/"2026-12-31"
+# dates in the "Fetch exact 2026 contributions total" step below, are both hardcoded to
+# 2026. Bump both to 2027 next January if you want them to track the new year.
+#
+# The new contributions-2026.svg badge queries GitHub's own totalContributions field
+# directly - the exact same number GitHub shows as "X contributions in 2026" on your
+# profile - so unlike the stats card's "Total Commits" (which only counts commits, not
+# issues/PRs/reviews), this badge will always match GitHub's number exactly.
 #
 # REQUIRED ONE-TIME SETUP - a "STATS_TOKEN" secret:
 # The automatic token GitHub gives every Action can only read the repo the workflow
@@ -54,6 +60,19 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+
+      - name: Fetch exact 2026 contributions total (matches native GitHub figure)
+        id: contrib
+        run: |
+          QUERY='query { user(login: "DarkHeart01") { contributionsCollection(from: "2026-01-01T00:00:00Z", to: "2026-12-31T23:59:59Z") { contributionCalendar { totalContributions } } } }'
+          BODY=$(jq -n --arg q "$QUERY" '{query: $q}')
+          RESPONSE=$(curl -s -H "Authorization: bearer ${{ secrets.STATS_TOKEN }}" -X POST -d "$BODY" https://api.github.com/graphql)
+          TOTAL=$(echo "$RESPONSE" | jq -r '.data.user.contributionsCollection.contributionCalendar.totalContributions')
+          echo "total=$TOTAL" >> "$GITHUB_OUTPUT"
+
+      - name: Generate contributions badge
+        run: |
+          curl -s "https://img.shields.io/badge/2026%20Contributions-${{ steps.contrib.outputs.total }}-8a2be2?style=for-the-badge&logo=github&logoColor=white" -o profile/contributions-2026.svg
 
       - name: Generate stats card (includes 2026 commit count, private + public)
         uses: stats-organization/github-readme-stats-action@v2
@@ -111,12 +130,20 @@ jobs:
           path: profile/pin-realstate-allan.svg
           token: ${{ secrets.STATS_TOKEN }}
 
-      - name: Generate pin - MUN_chits
+      - name: Generate pin - Serapeum
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: pin
-          options: username=pictmun&repo=MUN_chits&theme=tokyonight&hide_border=true
-          path: profile/pin-mun-chits.svg
+          options: username=ET-Hackathon&repo=Content&theme=tokyonight&hide_border=true
+          path: profile/pin-Serapeum.svg
+          token: ${{ secrets.STATS_TOKEN }}
+
+      - name: Generate pin - Serapeum
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=ET-Hackathon&repo=Content&theme=tokyonight&hide_border=true
+          path: profile/pin-Serapeum.svg
           token: ${{ secrets.STATS_TOKEN }}
 
       - name: Generate trophy card
