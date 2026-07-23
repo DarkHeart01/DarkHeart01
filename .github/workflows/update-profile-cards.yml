@@ -134,7 +134,7 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: pin
-          options: username=ET-Hackathon&repo=Content&theme=tokyonight&hide_border=true
+          options: username=ET-Hackathon&repo=Serapeum&theme=tokyonight&hide_border=true
           path: profile/pin-Serapeum.svg
           token: ${{ secrets.STATS_TOKEN }}
 
@@ -142,7 +142,7 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: pin
-          options: username=ET-Hackathon&repo=Content&theme=tokyonight&hide_border=true
+          options: username=ET-Hackathon&repo=Serapeum&theme=tokyonight&hide_border=true
           path: profile/pin-Serapeum.svg
           token: ${{ secrets.STATS_TOKEN }}
 
