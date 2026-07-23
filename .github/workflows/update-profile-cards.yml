@@ -14,20 +14,28 @@
 #
 # REQUIRED ONE-TIME SETUP - a "STATS_TOKEN" secret:
 # The automatic token GitHub gives every Action can only read the repo the workflow
-# lives in. These cards need to read OTHER repos (yours and other orgs'), and the
-# trophy card also needs to read your public contribution/follower counts, so you
-# need to give it a real personal access token instead:
+# lives in. These cards need to read OTHER repos (yours and other orgs'), so you need
+# to give it a real personal access token instead:
 #   1. Go to https://github.com/settings/tokens -> "Generate new token (classic)".
 #   2. Name it anything (e.g. "profile-stats"), no expiration or your preference.
-#   3. Check BOTH the "public_repo" scope (reads other public repos for the pin
-#      cards) AND the "read:user" scope (reads contribution/follower counts for
-#      the trophy card). Skipping read:user makes the trophy step fail with
-#      "Failed to fetch user info" even though the other cards work fine.
-#   4. Generate it and copy the token (starts with "ghp_...") - you won't see it again.
-#   5. In DarkHeart01/DarkHeart01 -> Settings -> Secrets and variables -> Actions
+#   3. Check the "repo" scope (the full one, not just "public_repo"). This is required
+#      because count_private=true below needs to read your private repos to count
+#      their commits - "public_repo" alone will NOT work for this and 104 will stay 104.
+#      Security note: this means the token itself can read your private repo contents,
+#      not just counts. It's only used inside your own Actions runs and stored as a
+#      masked secret, but it's a bigger blast radius than public_repo if it ever leaked.
+#      If you'd rather not grant that, skip this and keep count_private off - your card
+#      will keep showing public commits only (104), which is still accurate, just smaller.
+#   4. ALSO check the "read:user" scope. The trophy card queries GitHub's
+#      contributionsCollection field, which needs read:user regardless of whether
+#      "repo" is granted - "repo" and "read:user" are independent scopes, so skipping
+#      this makes the trophy step fail with "Failed to fetch user info" even though
+#      the other cards work fine.
+#   5. Generate it and copy the token (starts with "ghp_...") - you won't see it again.
+#   6. In DarkHeart01/DarkHeart01 -> Settings -> Secrets and variables -> Actions
 #      -> "New repository secret".
-#   6. Name: STATS_TOKEN   Value: paste the token   -> Add secret.
-#   7. Re-run the workflow from the Actions tab. The cards should generate correctly now.
+#   7. Name: STATS_TOKEN   Value: paste the token   -> Add secret.
+#   8. Re-run the workflow from the Actions tab. The cards should generate correctly now.
 
 name: Update profile cards
 
@@ -47,11 +55,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Generate stats card (includes 2026 commit count)
+      - name: Generate stats card (includes 2026 commit count, private + public)
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
-          options: username=DarkHeart01&show_icons=true&theme=tokyonight&hide_border=true&commits_year=2026
+          options: username=DarkHeart01&show_icons=true&theme=tokyonight&hide_border=true&commits_year=2026&count_private=true
           path: profile/stats.svg
           token: ${{ secrets.STATS_TOKEN }}
 
