@@ -83,8 +83,6 @@
 <img src="https://raw.githubusercontent.com/DarkHeart01/DarkHeart01/output/github-contribution-grid-snake.svg" alt="snake animation" width="100%"/>
 </div>
 
-<p align="center"><i>One-time setup needed — see <code>snake-workflow.yml</code> in the same folder as this README.</i></p>
-
 <br/>
 
 ## 🤝 Connect With Me
