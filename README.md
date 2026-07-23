@@ -44,7 +44,7 @@
 <a href="https://github.com/ArgusPanipath/Auditor"><img src="./profile/pin-auditor.svg" /></a>
 <a href="https://github.com/MyMindSpace/TTS"><img src="./profile/pin-tts.svg" /></a>
 <a href="https://github.com/DarkHeart01/Realstate_allan"><img src="./profile/pin-realstate-allan.svg" /></a>
-<a href="https://github.com/ET-Hackathon/Content"><img src="./profile/pin-mun-chits.svg" /></a>
+<a href="https://github.com/ET-Hackathon/Content"><img src="./profile/pin-Serapeum.svg" /></a>
 
 </div>
 
