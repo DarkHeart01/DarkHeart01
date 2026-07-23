@@ -19,11 +19,11 @@
 
 ## 👋 About Me
 
-- 🔭 Building backend systems and integrations in **Go** and **Python** — recent work spans ERP master-data integration and security/auditing tooling
-- 🤖 Exploring AI tooling — experimenting with MCP (Model Context Protocol) servers and text-to-speech pipelines
-- 🛡️ Drawn to security-minded, automation-heavy side projects
-- 🎓 *(Add a line here about your current role — student, job title, or what you're focused on right now)*
-- ⚡ Fun fact: some of my code lives in the [GitHub Arctic Code Vault](https://archiveprogram.github.com/) ❄️
+- 🔭 Building backend systems and integrations in **Node** and **Python** — I do enjoy a bit of unexplored territory but I will crash and burn :D
+- 🤖 AI Paglu — RAG, RL and Agentic Systems
+- 🛡️ Drawn to security-minded, automation-heavy side projects but my background is Devops
+- 🎓 Education in Electronics and Telecommunications systems with a profound abomination for my Professors <3
+- ⚡ Fun fact: some of my code lives in the [GitHub Arctic Code Vault](https://archiveprogram.github.com/) ❄️ but I live in Pune
 - 📫 Reach me through the links at the bottom of this page
 
 <br/>
