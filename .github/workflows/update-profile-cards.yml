@@ -11,6 +11,23 @@
 #
 # NOTE: the "commits_year=2026" param on the stats card locks the commit count to 2026.
 # Bump it to 2027 next January if you want the card to track the new year.
+#
+# REQUIRED ONE-TIME SETUP - a "STATS_TOKEN" secret:
+# The automatic token GitHub gives every Action can only read the repo the workflow
+# lives in. These cards need to read OTHER repos (yours and other orgs'), and the
+# trophy card also needs to read your public contribution/follower counts, so you
+# need to give it a real personal access token instead:
+#   1. Go to https://github.com/settings/tokens -> "Generate new token (classic)".
+#   2. Name it anything (e.g. "profile-stats"), no expiration or your preference.
+#   3. Check BOTH the "public_repo" scope (reads other public repos for the pin
+#      cards) AND the "read:user" scope (reads contribution/follower counts for
+#      the trophy card). Skipping read:user makes the trophy step fail with
+#      "Failed to fetch user info" even though the other cards work fine.
+#   4. Generate it and copy the token (starts with "ghp_...") - you won't see it again.
+#   5. In DarkHeart01/DarkHeart01 -> Settings -> Secrets and variables -> Actions
+#      -> "New repository secret".
+#   6. Name: STATS_TOKEN   Value: paste the token   -> Add secret.
+#   7. Re-run the workflow from the Actions tab. The cards should generate correctly now.
 
 name: Update profile cards
 
@@ -36,7 +53,7 @@ jobs:
           card: stats
           options: username=DarkHeart01&show_icons=true&theme=tokyonight&hide_border=true&commits_year=2026
           path: profile/stats.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.STATS_TOKEN }}
 
       - name: Generate top languages card
         uses: stats-organization/github-readme-stats-action@v2
@@ -44,7 +61,7 @@ jobs:
           card: top-langs
           options: username=DarkHeart01&layout=compact&theme=tokyonight&hide_border=true
           path: profile/top-langs.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.STATS_TOKEN }}
 
       - name: Generate pin - erp-masterdata-integration
         uses: stats-organization/github-readme-stats-action@v2
@@ -52,7 +69,7 @@ jobs:
           card: pin
           options: username=DarkHeart01&repo=erp-masterdata-integration&theme=tokyonight&hide_border=true
           path: profile/pin-erp-masterdata-integration.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.STATS_TOKEN }}
 
       - name: Generate pin - General-Swarm
         uses: stats-organization/github-readme-stats-action@v2
@@ -60,7 +77,7 @@ jobs:
           card: pin
           options: username=BreakingEnigmaVIT&repo=General-Swarm&theme=tokyonight&hide_border=true
           path: profile/pin-general-swarm.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.STATS_TOKEN }}
 
       - name: Generate pin - Auditor
         uses: stats-organization/github-readme-stats-action@v2
@@ -68,7 +85,7 @@ jobs:
           card: pin
           options: username=ArgusPanipath&repo=Auditor&theme=tokyonight&hide_border=true
           path: profile/pin-auditor.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.STATS_TOKEN }}
 
       - name: Generate pin - TTS
         uses: stats-organization/github-readme-stats-action@v2
@@ -76,7 +93,7 @@ jobs:
           card: pin
           options: username=MyMindSpace&repo=TTS&theme=tokyonight&hide_border=true
           path: profile/pin-tts.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.STATS_TOKEN }}
 
       - name: Generate pin - Realstate_allan
         uses: stats-organization/github-readme-stats-action@v2
@@ -84,7 +101,7 @@ jobs:
           card: pin
           options: username=DarkHeart01&repo=Realstate_allan&theme=tokyonight&hide_border=true
           path: profile/pin-realstate-allan.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.STATS_TOKEN }}
 
       - name: Generate pin - MUN_chits
         uses: stats-organization/github-readme-stats-action@v2
@@ -92,18 +109,14 @@ jobs:
           card: pin
           options: username=pictmun&repo=MUN_chits&theme=tokyonight&hide_border=true
           path: profile/pin-mun-chits.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.STATS_TOKEN }}
 
       - name: Generate trophy card
         uses: Erik-Donath/github-profile-trophy@feature/generate-svg
         with:
           username: DarkHeart01
           file: profile/trophy.svg
-          # This action's GraphQL query reads contributionsCollection, which the
-          # automatic GITHUB_TOKEN isn't authorized to read (causes "Failed to
-          # fetch user info"). Create a classic PAT with the read:user scope,
-          # save it as a repo secret named PROFILE_PAT, and it'll be used here.
-          token: ${{ secrets.PROFILE_PAT }}
+          token: ${{ secrets.STATS_TOKEN }}
         # Optional: check this action's README for extra inputs (e.g. theme) if you
         # want the trophy colors to match tokyonight more closely.
 
