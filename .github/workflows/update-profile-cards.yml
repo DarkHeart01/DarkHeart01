@@ -18,6 +18,16 @@
 # profile - so unlike the stats card's "Total Commits" (which only counts commits, not
 # issues/PRs/reviews), this badge will always match GitHub's number exactly.
 #
+# The streak card is now generated with an authenticated token too (profile/streak.svg),
+# replacing the old hotlinked streak-stats.demolab.com image. That old image had no way
+# to authenticate, so it could only see PUBLIC contributions - private repo activity was
+# invisible to it even though your own logged-in GitHub profile shows the full total.
+# The activity-graph image further down is still hotlinked (no Action exists for it) and
+# has the same public-only limitation. To make BOTH the activity graph and GitHub's own
+# public contribution calendar reflect your private activity to visitors, go to
+# https://github.com/settings/profile and check "Include private contributions on my
+# profile" - repo names stay hidden, only the contribution counts become visible.
+#
 # REQUIRED ONE-TIME SETUP - a "STATS_TOKEN" secret:
 # The automatic token GitHub gives every Action can only read the repo the workflow
 # lives in. These cards need to read OTHER repos (yours and other orgs'), so you need
@@ -88,6 +98,13 @@ jobs:
           card: top-langs
           options: username=DarkHeart01&layout=compact&theme=tokyonight&hide_border=true
           path: profile/top-langs.svg
+          token: ${{ secrets.STATS_TOKEN }}
+
+      - name: Generate streak stats card (includes private contributions)
+        uses: DenverCoder1/github-readme-streak-stats@main
+        with:
+          options: user=DarkHeart01&theme=tokyonight&hide_border=true
+          path: profile/streak.svg
           token: ${{ secrets.STATS_TOKEN }}
 
       - name: Generate pin - erp-masterdata-integration

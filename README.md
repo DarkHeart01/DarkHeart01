@@ -60,7 +60,7 @@
 
 <br/>
 
-<img src="https://streak-stats.demolab.com/?user=DarkHeart01&theme=tokyonight&hide_border=true" alt="GitHub streak stats"/>
+<img src="./profile/streak.svg" alt="GitHub streak stats"/>
 
 <br/><br/>
 
