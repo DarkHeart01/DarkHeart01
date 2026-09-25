@@ -20,11 +20,11 @@
 ## 👋 About Me
 
 - 🔭 Building backend systems and integrations in **C/C++** **Node** and **Python** — I do enjoy a bit of unexplored territory but I will crash and burn :D
-- 🤖 AI Paglu — RAG, RL and Agentic Systems
-- 🛡️ Drawn to security! Love exploring exploits and red-team stuff, and sprinkle that with a bit of Distributed systems 
-- 🎓 Education in Electronics and Telecommunications systems with a profound abomination for my Professors <3, but the the subjects were cool
-- ⚡ Fun fact: some of my code lives in the [GitHub Arctic Code Vault](https://archiveprogram.github.com/) ❄️ but I live in Pune
-- 📫 Reach me through the links at the bottom of this page
+- 🤖 AI Paglu — RAG, RL and Agentic Systems.
+- 🛡️ Drawn to security! Love exploring exploits and red-team stuff, and sprinkle that with a bit of Distributed systems.
+- 🎓 Education in Electronics and Telecommunications systems with a profound abomination for my Professors <3, but the the subjects were interesting
+- ⚡ Fun fact: some of my code lives in the [GitHub Arctic Code Vault](https://archiveprogram.github.com/) ❄️ and I live in Pune <3
+- 📫 Reach me through the links at the bottom of this page.
 
 <br/>
 
