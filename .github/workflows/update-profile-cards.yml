@@ -29,11 +29,16 @@
 # replacing the old hotlinked streak-stats.demolab.com image. That old image had no way
 # to authenticate, so it could only see PUBLIC contributions - private repo activity was
 # invisible to it even though your own logged-in GitHub profile shows the full total.
-# The activity-graph image further down is still hotlinked (no Action exists for it) and
-# has the same public-only limitation. To make BOTH the activity graph and GitHub's own
-# public contribution calendar reflect your private activity to visitors, go to
-# https://github.com/settings/profile and check "Include private contributions on my
-# profile" - repo names stay hidden, only the contribution counts become visible.
+# The activity-graph card (profile/activity-graph.svg) is now generated the same way,
+# via maurodesouza/github-readme-activity-graph-action. This replaces the old hotlinked
+# github-readme-activity-graph.vercel.app image, whose public demo instance periodically
+# runs out of its free Vercel quota and starts returning HTTP 402 (Payment Required) -
+# which is why the graph was showing as a broken image on the profile. Like the streak
+# card, it's now baked from an authenticated token so it can also see private activity.
+# To make BOTH this card and GitHub's own public contribution calendar reflect your
+# private activity to visitors, go to https://github.com/settings/profile and check
+# "Include private contributions on my profile" - repo names stay hidden, only the
+# contribution counts become visible.
 #
 # REQUIRED ONE-TIME SETUP - a "STATS_TOKEN" secret:
 # The automatic token GitHub gives every Action can only read the repo the workflow
@@ -173,6 +178,15 @@ jobs:
           card: pin
           options: username=ET-Hackathon&repo=Serapeum&theme=tokyonight&hide_border=true
           path: profile/pin-Serapeum.svg
+          token: ${{ secrets.STATS_TOKEN }}
+
+      - name: Generate activity graph (replaces flaky hotlinked vercel demo, which
+          returns 402 when that public instance's free quota is exhausted)
+        uses: maurodesouza/github-readme-activity-graph-action@v1
+        with:
+          username: DarkHeart01
+          options: theme=tokyo-night&hide_border=true
+          output_path: profile/activity-graph.svg
           token: ${{ secrets.STATS_TOKEN }}
 
       - name: Generate trophy card
