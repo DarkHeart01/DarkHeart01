@@ -1,12 +1,12 @@
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,100:00C853&height=3" width="100%"/>
 
 ```text
-███╗   ██╗██████╗  ██████╗ 
-████╗  ██║██╔══██╗██╔════╝ 
-██╔██╗ ██║██████╔╝██║  ███╗
-██║╚██╗██║██╔══██╗██║   ██║
-██║ ╚████║██║  ██║╚██████╔╝
-╚═╝  ╚═══╝╚═╝  ╚═╝ ╚═════╝ 
+████████╗██╗████████╗ █████╗ ███╗   ██╗
+╚══██╔══╝██║╚══██╔══╝██╔══██╗████╗  ██║
+   ██║   ██║   ██║   ███████║██╔██╗ ██║
+   ██║   ██║   ██║   ██╔══██║██║╚██╗██║
+   ██║   ██║   ██║   ██║  ██║██║ ╚████║
+   ╚═╝   ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝
 
   nishant raj tiwari  ::  backend & systems  ::  automation + security
 
@@ -29,9 +29,7 @@
 <br/>
 
 <img src="https://komarev.com/ghpvc/?username=DarkHeart01&label=VISITOR+No.&color=00C853&style=flat-square" alt="visitors"/>
-<img src="./profile/followers.svg" alt="followers"/>
 <img src="https://img.shields.io/badge/Arctic%20Code%20Vault-Contributor-00C853?style=flat-square&logo=github&logoColor=white&labelColor=0a0a0a" alt="arctic code vault"/>
-<img src="./profile/contributions-2026.svg" alt="2026 contributions"/>
 
 </div>
 
@@ -125,7 +123,7 @@
 <a href="https://github.com/ArgusPanipath/Auditor"><img src="./profile/pin-auditor.svg" alt="Auditor"/></a>
 <a href="https://github.com/MyMindSpace/TTS"><img src="./profile/pin-tts.svg" alt="TTS"/></a>
 <a href="https://github.com/DarkHeart01/Realstate_allan"><img src="./profile/pin-realstate-allan.svg" alt="Realstate_allan"/></a>
-<a href="https://github.com/ET-Hackathon/Serapeum"><img src="./profile/pin-Serapeum.svg" alt="Serapeum"/></a>
+<a href="https://github.com/ET-Hackathon/Serapeum"><img src="./profile/pin-serapeum.svg" alt="Serapeum"/></a>
 
 </div>
 
@@ -135,25 +133,25 @@
 
 <div align="center">
 
-<img height="165" src="./profile/stats.svg" alt="github stats"/>
-<img height="165" src="./profile/top-langs.svg" alt="top languages"/>
+<img src="./profile/stats.svg" alt="stats"/>
+<img src="./profile/top-langs.svg" alt="top languages"/>
 
 <br/>
 
-<img src="./profile/streak.svg" alt="streak"/>
+<img src="./profile/streak.svg" alt="uptime"/>
 
-<br/><br/>
+<br/>
 
-<img src="./profile/activity-graph.svg" alt="activity graph" width="95%"/>
+<img src="./profile/activity-graph.svg" alt="contribution scope"/>
 
 </div>
 
 <br/>
 
-## `$ ls ~/trophies`
+## `$ ls ~/.achievements`
 
 <div align="center">
-<img src="./profile/trophy.svg" alt="trophies"/>
+<img src="./profile/achievements.svg" alt="achievements"/>
 </div>
 
 <br/>
