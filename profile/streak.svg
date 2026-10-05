@@ -10,13 +10,13 @@
 <text x="710" y="16" font-size="11" fill="#7fbf8f" text-anchor="end" xml:space="preserve">[_] [#] [x]</text>
 <text x="14" y="42" font-size="11" fill="#3f6b4b" text-anchor="start" font-weight="normal" xml:space="preserve">$ uptime</text><rect x="70.8" y="32" width="6.6" height="11" fill="#39ff88"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.1s" repeatCount="indefinite"/></rect>
 <text x="120" y="70" font-size="10" fill="#3f6b4b" text-anchor="middle" font-weight="normal" xml:space="preserve">CURRENT STREAK (days)</text>
-<text x="120" y="112" font-size="40" fill="#ffb000" text-anchor="middle" font-weight="bold" xml:space="preserve" filter="url(#glow)">0</text>
-<text x="120" y="132" font-size="11" fill="#7fbf8f" text-anchor="middle" font-weight="normal" xml:space="preserve">—</text>
+<text x="120" y="112" font-size="40" fill="#ffb000" text-anchor="middle" font-weight="bold" xml:space="preserve" filter="url(#glow)">1</text>
+<text x="120" y="132" font-size="11" fill="#7fbf8f" text-anchor="middle" font-weight="normal" xml:space="preserve">Oct 5 - Oct 5</text>
 <text x="360" y="70" font-size="10" fill="#3f6b4b" text-anchor="middle" font-weight="normal" xml:space="preserve">LONGEST STREAK (days)</text>
 <text x="360" y="112" font-size="40" fill="#39ff88" text-anchor="middle" font-weight="bold" xml:space="preserve" filter="url(#glow)">11</text>
 <text x="360" y="132" font-size="11" fill="#7fbf8f" text-anchor="middle" font-weight="normal" xml:space="preserve">Sep 22 - Oct 2</text>
 <text x="600" y="70" font-size="10" fill="#3f6b4b" text-anchor="middle" font-weight="normal" xml:space="preserve">TOTAL CONTRIBUTIONS</text>
-<text x="600" y="112" font-size="40" fill="#39ff88" text-anchor="middle" font-weight="bold" xml:space="preserve" filter="url(#glow)">531</text>
+<text x="600" y="112" font-size="40" fill="#39ff88" text-anchor="middle" font-weight="bold" xml:space="preserve" filter="url(#glow)">532</text>
 <text x="600" y="132" font-size="11" fill="#7fbf8f" text-anchor="middle" font-weight="normal" xml:space="preserve">since Nov 25, 2019</text>
 <line x1="240" y1="56" x2="240" y2="134" stroke="#1d3b22" stroke-dasharray="3 3"/>
 <line x1="480" y1="56" x2="480" y2="134" stroke="#1d3b22" stroke-dasharray="3 3"/>
