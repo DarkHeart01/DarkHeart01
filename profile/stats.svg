@@ -10,7 +10,7 @@
 <text x="348" y="16" font-size="11" fill="#7fbf8f" text-anchor="end" xml:space="preserve">[_] [#] [x]</text>
 <text x="14" y="42" font-size="11" fill="#3f6b4b" text-anchor="start" font-weight="normal" xml:space="preserve">$ ./stats --user DarkHeart01</text><rect x="202.8" y="32" width="6.6" height="11" fill="#39ff88"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.1s" repeatCount="indefinite"/></rect>
 <text x="14" y="68" font-size="12.5" xml:space="preserve"><tspan fill="#7fbf8f" font-weight="normal">stars .............</tspan><tspan fill="#39ff88" font-weight="bold"> 0</tspan></text>
-<text x="14" y="89" font-size="12.5" xml:space="preserve"><tspan fill="#7fbf8f" font-weight="normal">commits_2026 ......</tspan><tspan fill="#39ff88" font-weight="bold"> 204</tspan></text>
+<text x="14" y="89" font-size="12.5" xml:space="preserve"><tspan fill="#7fbf8f" font-weight="normal">commits_2026 ......</tspan><tspan fill="#39ff88" font-weight="bold"> 205</tspan></text>
 <text x="14" y="110" font-size="12.5" xml:space="preserve"><tspan fill="#7fbf8f" font-weight="normal">pull_requests .....</tspan><tspan fill="#39ff88" font-weight="bold"> 0</tspan></text>
 <text x="14" y="131" font-size="12.5" xml:space="preserve"><tspan fill="#7fbf8f" font-weight="normal">issues ............</tspan><tspan fill="#39ff88" font-weight="bold"> 0</tspan></text>
 <text x="14" y="152" font-size="12.5" xml:space="preserve"><tspan fill="#7fbf8f" font-weight="normal">contributed_to ....</tspan><tspan fill="#39ff88" font-weight="bold"> 10</tspan></text>
@@ -20,6 +20,6 @@
 <text x="279" y="126" font-size="50" fill="#39ff88" text-anchor="middle" font-weight="bold" xml:space="preserve" filter="url(#glow)">03</text>
 <text x="279" y="144" font-size="11" fill="#7fbf8f" text-anchor="middle" font-weight="normal" xml:space="preserve">LVL</text>
 <rect x="225.0" y="150" width="9" height="8" fill="#00c853"/><rect x="236.0" y="150" width="9" height="8" fill="#00c853"/><rect x="247.0" y="150" width="9" height="8" fill="#0f2113"/><rect x="258.0" y="150" width="9" height="8" fill="#0f2113"/><rect x="269.0" y="150" width="9" height="8" fill="#0f2113"/><rect x="280.0" y="150" width="9" height="8" fill="#0f2113"/><rect x="291.0" y="150" width="9" height="8" fill="#0f2113"/><rect x="302.0" y="150" width="9" height="8" fill="#0f2113"/><rect x="313.0" y="150" width="9" height="8" fill="#0f2113"/><rect x="324.0" y="150" width="9" height="8" fill="#0f2113"/>
-<text x="279" y="174" font-size="10" fill="#3f6b4b" text-anchor="middle" font-weight="normal" xml:space="preserve">xp 254/400</text>
+<text x="279" y="174" font-size="10" fill="#3f6b4b" text-anchor="middle" font-weight="normal" xml:space="preserve">xp 255/400</text>
 <rect x="1" y="23" width="356" height="172" fill="url(#scan)"/>
 </svg>
